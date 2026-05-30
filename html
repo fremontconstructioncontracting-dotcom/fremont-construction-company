@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fremont Construction & Contracting Co. | Trusted. Reliable. Built to Last.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --orange: #F47920;
+            --orange-dark: #d4670f;
+            --navy: #1B2A4A;
+            --navy-dark: #0f1c30;
+            --charcoal: #3D3D3D;
+            --light-gray: #F4F4F4;
+            --white: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--navy);
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .nav-ohio {
+            width: 38px;
+            height: 46px;
+            flex-shrink: 0;
+        }
+
+        .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .nav-logo-text .brand-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .nav-logo-text .brand-sub {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 0.58rem;
+            color: var(--orange);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+
+        .nav-cta {
+            background: var(--orange) !important;
+            color: var(--white) !important;
+            padding: 0.55rem 1.4rem !important;
+            border-radius: 3px;
+        }
+        .nav-cta:hover { background: var(--orange-dark) !important; }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            background: var(--navy);
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg-lines {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-bg-lines::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: -120px;
+            width: 55%;
+            height: 110%;
+            background: rgba(244,121,32,0.055);
+            transform: skewX(-10deg);
+        }
+        .hero-bg-lines::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--orange);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2.5rem 6rem;
+            width: 100%;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .eyebrow-line { display: block; width: 38px; height: 3px; background: var(--orange); }
+        .eyebrow p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(3.2rem, 7.5vw, 6rem);
+            line-height: 0.95;
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 1.75rem;
+        }
+        .hero h1 em { color: var(--orange); font-style: normal; }
+
+        .hero-tagline {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+        .hero-tagline .tl { display: block; width: 28px; height: 3px; background: var(--orange); }
+        .hero-tagline p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.88rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.75);
+            max-width: 500px;
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        /* ── BUTTONS ── */
+        .btn {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 3px;
+            display: inline-block;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+        .btn-orange:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+        .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.45); }
+        .btn-outline-white:hover { border-color: var(--orange); color: var(--orange); }
+        .btn-navy { background: var(--navy); color: var(--white); border-color: var(--navy); }
+        .btn-navy:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
+
+        /* ── SECTION BASE ── */
+        .section { padding: 5.5rem 2.5rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+        .section-label .sl { display: block; width: 28px; height: 3px; background: var(--orange); }
+        .section-label p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            text-transform: uppercase;
+            color: var(--navy);
+            line-height: 1.05;
+        }
+        .section-title em { color: var(--orange); font-style: normal; }
+
+        /* ── SERVICES ── */
+        .services { background: var(--light-gray); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-top: 4px solid var(--orange);
+            border-radius: 3px;
+            padding: 2rem 1.75rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: transform 0.22s, box-shadow 0.22s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.11);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--navy);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+        .service-icon svg { width: 26px; height: 26px; fill: var(--orange); }
+
+        .service-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 0.65rem;
+            letter-spacing: 0.04em;
+        }
+        .service-card p { font-size: 0.9rem; color: #666; line-height: 1.75; }
+
+        /* ── ABOUT ── */
+        .about { background: var(--white); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content .inline-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .about-content .inline-label .sl { display: block; width: 28px; height: 3px; background: var(--orange); }
+        .about-content .inline-label p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .about-content h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            text-transform: uppercase;
+            color: var(--navy);
+            line-height: 1.05;
+            margin-bottom: 1.25rem;
+        }
+        .about-content h2 em { color: var(--orange); font-style: normal; }
+
+        .orange-bar { width: 48px; height: 4px; background: var(--orange); margin: 1.5rem 0; }
+
+        .about-content p { font-size: 0.95rem; color: #555; line-height: 1.85; margin-bottom: 0.85rem; }
+        .about-content p:last-of-type { margin-bottom: 0; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .stat-card {
+            background: var(--navy);
+            padding: 2rem 1.5rem;
+            border-radius: 3px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--orange);
+        }
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: var(--orange);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* ── WHY US ── */
+        .why {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .why::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -60px;
+            width: 280px;
+            height: 100%;
+            background: rgba(244,121,32,0.055);
+            transform: skewX(-12deg);
+        }
+
+        .why .section-title { color: var(--white); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem 1.25rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            transition: border-color 0.22s, background 0.22s;
+        }
+        .why-card:hover {
+            border-color: var(--orange);
+            background: rgba(244,121,32,0.05);
+        }
+
+        .why-icon {
+            width: 58px;
+            height: 58px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+        .why-icon svg { width: 28px; height: 28px; fill: var(--white); }
+
+        .why-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 0.65rem;
+            letter-spacing: 0.05em;
+        }
+        .why-card p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+
+        /* ── CTA BAND ── */
+        .cta-band {
+            background: var(--orange);
+            padding: 4rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -80px;
+            width: 200px;
+            height: 100%;
+            background: rgba(0,0,0,0.07);
+            transform: skewX(-10deg);
+        }
+        .cta-band h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.04em;
+        }
+        .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; }
+
+        /* ── CONTACT ── */
+        .contact { background: var(--light-gray); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 1.75rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .ci-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .ci-icon svg { width: 18px; height: 18px; fill: var(--white); }
+
+        .ci-text strong {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 0.2rem;
+        }
+        .ci-text span { font-size: 0.93rem; color: var(--charcoal); }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.75rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .contact-form h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1.15rem; }
+
+        .form-group label {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.95rem;
+            border: 1.5px solid #ddd;
+            border-radius: 3px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            background: var(--white);
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--orange); }
+        .form-group textarea { min-height: 115px; resize: vertical; }
+
+        .form-submit {
+            width: 100%;
+            background: var(--orange);
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: none;
+            padding: 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-submit:hover { background: var(--orange-dark); }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--navy);
+            padding: 4rem 2.5rem 1.75rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .fb-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: block;
+        }
+        .footer-brand .fb-sub {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--orange);
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.75; }
+
+        .footer-tagline {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.1rem;
+        }
+        .footer-tagline .ftl { width: 18px; height: 2px; background: var(--orange); display: block; }
+        .footer-tagline p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-style: italic;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--orange);
+            display: inline-block;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1.5rem;
+        }
+        .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.38); }
+        .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+        .footer-bottom a:hover { color: var(--orange); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 860px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2.75rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .navbar { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 74px;
+                left: 0;
+                right: 0;
+                background: var(--navy-dark);
+                padding: 1.5rem;
+                gap: 1.25rem;
+            }
+            .nav-toggle { display: flex; }
+            .section { padding: 4rem 1.5rem; }
+            .hero-content { padding: 4rem 1.5rem 5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .contact-form { padding: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">
+        <!-- Ohio outline SVG (simplified brand mark) -->
+        <svg class="nav-ohio" viewBox="0 0 80 95" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stars -->
+            <text x="5" y="13" font-size="11" fill="#F47920" font-family="Georgia, serif" letter-spacing="2">★★★★★</text>
+            <!-- Top border (Lake Erie / north — orange) -->
+            <path d="M 12,62 L 12,28 L 30,28 L 30,20 L 68,23 L 68,62"
+                  fill="none" stroke="#F47920" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+            <!-- Bottom border (Ohio River — white) -->
+            <path d="M 12,62 L 12,75 Q 18,84 24,86 Q 30,89 36,85 Q 41,81 46,85 Q 51,89 57,86 Q 63,83 66,77 L 68,68 L 68,62"
+                  fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="nav-logo-text">
+            <span class="brand-name">Fremont</span>
+            <span class="brand-sub">Construction &amp; Contracting Co.</span>
+        </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+    <div class="hero-bg-lines"></div>
+    <div class="hero-content">
+        <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            <p>Ohio's Trusted Builder</p>
+        </div>
+        <h1>Built for <em>Ohio.</em><br>Built to Last.</h1>
+        <div class="hero-tagline">
+            <span class="tl"></span>
+            <p>Trusted. Reliable. Built to Last.</p>
+            <span class="tl"></span>
+        </div>
+        <p class="hero-desc">
+            From ground-up construction to full-scale renovations, Fremont Construction &amp; Contracting Co. delivers quality craftsmanship and unmatched reliability across Ohio.
+        </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-orange">Get a Free Estimate</a>
+            <a href="#services" class="btn btn-outline-white">Our Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="section services" id="services">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="sl"></span><p>What We Do</p><span class="sl"></span>
+            </div>
+            <h2 class="section-title">Our <em>Services</em></h2>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </div>
+                <h3>New Home Construction</h3>
+                <p>We bring your vision to life from the ground up. Custom homes built to your exact specifications with quality materials and expert craftsmanship at every step.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+                </div>
+                <h3>General Contracting</h3>
+                <p>Full-service general contracting for residential and commercial projects. We coordinate every trade and manage every phase of your project from start to finish.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                </div>
+                <h3>Remodeling &amp; Renovation</h3>
+                <p>Transform your existing space with our expert remodeling team. Kitchens, bathrooms, basements, whole-home additions — no project is too large or complex.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                </div>
+                <h3>Commercial Construction</h3>
+                <p>Office buildings, retail spaces, warehouses, and more. We deliver commercial builds on time and within budget without compromising quality.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.72L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+                </div>
+                <h3>Roofing</h3>
+                <p>Residential and commercial roofing installation, repair, and full replacement. Quality shingles and materials backed by our workmanship guarantee.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                </div>
+                <h3>Concrete &amp; Site Work</h3>
+                <p>Foundations, flatwork, driveways, retaining walls, and land clearing. Precision site preparation for residential and commercial construction projects.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="section about" id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-content">
+                <div class="inline-label">
+                    <span class="sl"></span><p>Who We Are</p>
+                </div>
+                <h2>Ohio-Based.<br><em>Family-Owned.</em><br>Built on Trust.</h2>
+                <div class="orange-bar"></div>
+                <p>Fremont Construction &amp; Contracting Co. is a locally owned and operated construction company proudly serving Ohio homeowners and businesses. We take pride in every project we touch — from the first nail driven to the final walkthrough.</p>
+                <p>With years of hands-on experience across Ohio, our team brings the expertise, work ethic, and dedication to quality that Ohio families and businesses deserve. When you hire Fremont, you're hiring a team that treats your project like it's our own.</p>
+                <a href="#contact" class="btn btn-orange" style="margin-top:1.75rem;">Work With Us</a>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years in Business</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Licensed &amp; Insured</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5★</span>
+                    <span class="stat-label">Customer Rating</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="section why" id="why-us">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="sl"></span><p>Why Fremont</p><span class="sl"></span>
+            </div>
+            <h2 class="section-title">Why Choose <em>Us</em></h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+                </div>
+                <h3>On-Time Delivery</h3>
+                <p>We respect your time and your investment. Every project is planned and executed to meet agreed-upon deadlines — no excuses.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                </div>
+                <h3>Licensed &amp; Insured</h3>
+                <p>Full Ohio licensure and comprehensive insurance coverage means your project and property are always protected from day one.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+                </div>
+                <h3>Quality Craftsmanship</h3>
+                <p>We don't cut corners. Every build meets or exceeds Ohio code and we stand behind our work with a complete satisfaction guarantee.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                </div>
+                <h3>Clear Communication</h3>
+                <p>You'll always know where your project stands. Transparent timelines, honest updates, and a team that answers the phone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<div class="cta-band">
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Contact us today for a free, no-obligation estimate. Proudly serving Fremont, OH and surrounding areas.</p>
+        <a href="#contact" class="btn btn-navy">Request a Free Estimate</a>
+    </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<section class="section contact" id="contact">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">
+                <span class="sl"></span><p>Get in Touch</p><span class="sl"></span>
+            </div>
+            <h2 class="section-title">Request a <em>Free Estimate</em></h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+
+                <div class="contact-item">
+                    <div class="ci-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="ci-text">
+                        <strong>Phone</strong>
+                        <span>(555) 000-0000</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="ci-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="ci-text">
+                        <strong>Email</strong>
+                        <span>info@fremontconstructionco.com</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="ci-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="ci-text">
+                        <strong>Service Area</strong>
+                        <span>Fremont, OH &amp; Surrounding Areas</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="ci-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                    </div>
+                    <div class="ci-text">
+                        <strong>Business Hours</strong>
+                        <span>Mon – Fri: 7:00 AM – 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" placeholder="(555) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="john@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Needed</label>
+                        <select>
+                            <option value="">Select a service...</option>
+                            <option>New Home Construction</option>
+                            <option>General Contracting</option>
+                            <option>Remodeling &amp; Renovation</option>
+                            <option>Commercial Construction</option>
+                            <option>Roofing</option>
+                            <option>Concrete &amp; Site Work</option>
+                            <option>Other / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea placeholder="Tell us about your project — location, size, timeline, etc."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="fb-name">Fremont</span>
+                <span class="fb-sub">Construction &amp; Contracting Co., LLC</span>
+                <p>Ohio-based, family-owned construction and contracting company delivering quality craftsmanship to homes and businesses across Ohio. Proven. Reliable. Built to Last.</p>
+                <div class="footer-tagline">
+                    <span class="ftl"></span>
+                    <p>Trusted. Reliable. Built to Last.</p>
+                    <span class="ftl"></span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">New Home Construction</a></li>
+                    <li><a href="#services">General Contracting</a></li>
+                    <li><a href="#services">Remodeling &amp; Renovation</a></li>
+                    <li><a href="#services">Commercial Construction</a></li>
+                    <li><a href="#services">Roofing</a></li>
+                    <li><a href="#services">Concrete &amp; Site Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#contact">Free Estimate</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Fremont Construction &amp; Contracting Co., LLC. All rights reserved.</p>
+            <p>Fremont, Ohio &nbsp;|&nbsp; <a href="#contact">Licensed &amp; Insured</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+
+</body>
+</html>
