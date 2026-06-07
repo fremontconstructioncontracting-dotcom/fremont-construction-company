@@ -160,6 +160,27 @@
             margin: 0 auto;
             padding: 5rem 2.5rem 6rem;
             width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 820px;
+            margin-left: 4.5rem;
+        }
+        .hero-logo img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         .eyebrow {
@@ -689,6 +710,8 @@
         }
 
         @media (max-width: 860px) {
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-right { display: none; }
             .about-grid { grid-template-columns: 1fr; gap: 2.75rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -746,17 +769,24 @@
 <section class="hero" id="home">
     <div class="hero-bg-lines"></div>
     <div class="hero-content">
-        <div class="eyebrow">
-            <span class="eyebrow-line"></span>
-            <p>Ohio's Trusted Builder</p>
+        <div class="hero-left">
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                <p>Ohio's Trusted Builder</p>
+            </div>
+            <h1>Trusted. Reliable.<br><em>Built to Last.</em></h1>
+            <p class="hero-desc">
+                From roofing and siding to ground-up construction, Fremont Construction &amp; Contracting delivers quality workmanship and unmatched reliability in Fremont and across the greater Northwest Ohio region.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-orange">Get a Free Estimate</a>
+                <a href="#services" class="btn btn-outline-white">Our Services</a>
+            </div>
         </div>
-        <h1>Trusted. Reliable.<br><em>Built to Last.</em></h1>
-        <p class="hero-desc">
-            From roofing and siding to ground-up construction, Fremont Construction &amp; Contracting delivers quality workmanship and unmatched reliability in Fremont and across the greater Northwest Ohio region.
-        </p>
-        <div class="hero-buttons">
-            <a href="#contact" class="btn btn-orange">Get a Free Estimate</a>
-            <a href="#services" class="btn btn-outline-white">Our Services</a>
+        <div class="hero-right">
+            <div class="hero-logo">
+                <img src="images/fremont-construction-logo.png" alt="Fremont Construction &amp; Contracting Co.">
+            </div>
         </div>
     </div>
 </section>
