@@ -350,6 +350,10 @@
             gap: 1.5rem;
         }
 
+        .commercial-services-list {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
         .service-card {
             background: var(--white);
             border-top: 4px solid var(--orange);
@@ -1265,6 +1269,7 @@
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .why-grid { grid-template-columns: repeat(2, 1fr); }
             .commercial-services-list { grid-template-columns: repeat(2, 1fr); }
+            .service-card, .why-card { min-width: 0; }
         }
 
         @media (max-width: 860px) {
@@ -1273,6 +1278,7 @@
             .about-grid { grid-template-columns: 1fr; gap: 2.75rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
+            .about-content, .stats-grid, .contact-info, .contact-form, .hero-left, .hero-right { min-width: 0; }
         }
 
         @media (max-width: 640px) {
@@ -1296,7 +1302,9 @@
             .services-grid { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
             .commercial-services-list { grid-template-columns: 1fr; }
+            .commercial-services-list li { min-width: 0; }
             .form-row { grid-template-columns: 1fr; }
+            .form-group { min-width: 0; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; align-items: flex-start; }
             .contact-form { padding: 1.75rem; }
@@ -1600,7 +1608,7 @@
             <div class="service-card" style="grid-column: 1 / -1; background: var(--navy); padding: 1.75rem 2rem; display: block;">
                 <h3 style="color: var(--white); text-align: center; font-size: 1.5rem; margin-bottom: 0.35rem;">Commercial Projects</h3>
                 <p style="color: rgba(255,255,255,0.75); margin-bottom: 0.85rem;">We proudly serve a wide range of commercial clients, including:</p>
-                <ul class="commercial-services-list" style="list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem 1.5rem; margin-bottom: 2.25rem; width: 100%;">
+                <ul class="commercial-services-list" style="list-style: none; display: grid; gap: 0.4rem 1.5rem; margin-bottom: 2.25rem; width: 100%;">
                         <li style="color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6; text-decoration: underline;">Medical, dental, and office buildings</li>
                         <li style="color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6; text-decoration: underline;">Franchises</li>
                         <li style="color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6; text-decoration: underline;">Restaurants</li>
@@ -2019,6 +2027,23 @@
                             <option>Roofing</option>
                             <option>Concrete &amp; Site Work</option>
                             <option>Other / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>How Did You Hear About Us?</label>
+                        <select name="referral_source">
+                            <option value="">Select an option...</option>
+                            <option>Google Search</option>
+                            <option>Google Maps</option>
+                            <option>Facebook</option>
+                            <option>Personal Referral</option>
+                            <option>Yelp</option>
+                            <option>Chamber of Commerce</option>
+                            <option>Yard Sign</option>
+                            <option>Repeat Customer</option>
+                            <option>Vehicle / Truck Signage</option>
+                            <option>Online Advertisement</option>
+                            <option>Other</option>
                         </select>
                     </div>
                     <div class="form-group">
