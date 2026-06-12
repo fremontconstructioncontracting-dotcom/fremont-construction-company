@@ -1130,6 +1130,29 @@
         .form-group textarea:focus { border-color: var(--orange); }
         .form-group textarea { min-height: 115px; resize: vertical; }
 
+        .phone-input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .phone-input-group input { flex: 1; min-width: 0; }
+        .country-code-select {
+            flex-shrink: 0;
+            width: auto;
+            max-width: 90px;
+            padding: 0.7rem 0.6rem;
+            border: 1.5px solid #ddd;
+            border-radius: 3px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            background: var(--white);
+            outline: none;
+            cursor: pointer;
+            appearance: menulist;
+            -webkit-appearance: menulist;
+        }
+        .country-code-select:focus { border-color: var(--orange); }
+
         .form-consent {
             display: flex;
             align-items: flex-start;
@@ -2202,12 +2225,21 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="tel" name="phone" placeholder="(555) 000-0000">
+                            <div class="phone-input-group">
+                                <select name="country_code" class="country-code-select" aria-label="Country code">
+                                    <option value="+1" selected>🇺🇸 +1</option>
+                                </select>
+                                <input type="tel" name="phone" placeholder="(555) 000-0000">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" name="email" placeholder="john@email.com" required>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Project ZIP Code</label>
+                        <input type="text" name="zip_code" placeholder="43420" inputmode="numeric" pattern="[0-9]{5}" maxlength="5">
                     </div>
                     <div class="form-group">
                         <label>Service Needed</label>
@@ -2754,7 +2786,6 @@
 
 </body>
 </html>
-
 
 
 
