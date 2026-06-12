@@ -1643,8 +1643,10 @@
         }
         .promo-close:hover { background: var(--orange); }
         .promo-image {
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
+            background-color: #fff;
             min-height: 320px;
         }
         .promo-content {
@@ -1722,6 +1724,7 @@
             .promo-script { font-size: 2.1rem; }
         }
     </style>
+    <link rel="preload" as="image" href="images/popup-ad-photo.jpg">
 </head>
 <body>
 
@@ -2433,7 +2436,7 @@
 <div class="promo-overlay" id="promoOverlay" role="dialog" aria-modal="true" aria-labelledby="promoHeading">
     <div class="promo-modal">
         <button class="promo-close" id="promoClose" aria-label="Close popup">&times;</button>
-        <div class="promo-image" style="background-image: url('images/popup-ad-photo.png');"></div>
+        <div class="promo-image" style="background-image: url('images/popup-ad-photo.jpg');"></div>
         <div class="promo-content">
             <div class="promo-icon-row">
                 <span class="pl"></span>
