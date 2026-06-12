@@ -1025,7 +1025,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: start;
         }
@@ -1084,17 +1084,11 @@
 
         .contact-form {
             background: var(--white);
-            padding: 2.75rem;
+            padding: 2.25rem;
             border-radius: 4px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .contact-form h3 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 600;
-            font-size: 1.35rem;
-            text-transform: uppercase;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
+            max-width: 480px;
+            margin-left: auto;
         }
 
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -1338,6 +1332,7 @@
             .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
             .about-content, .stats-grid, .contact-info, .contact-form, .hero-left, .hero-right { min-width: 0; }
+            .contact-form { max-width: 100%; margin-left: 0; }
         }
 
         @media (max-width: 640px) {
@@ -2202,7 +2197,6 @@
             </div>
 
             <div class="contact-form">
-                <h3>Send Us a Message</h3>
                 <div class="form-success" id="formSuccess" role="status" aria-live="polite">
                     <strong>✓ Message Sent Successfully!</strong>
                     <span>Thanks for reaching out — our team will get back to you shortly.</span>
