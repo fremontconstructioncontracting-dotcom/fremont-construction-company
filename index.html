@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="images/fremont-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -1538,6 +1538,135 @@
         @media (max-width: 480px) {
             .mobile-call-btn { left: 1.25rem; bottom: 1.25rem; }
         }
+
+        /* ── PROMO POPUP ── */
+        .promo-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 28, 48, 0.65);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .promo-overlay.is-open { display: flex; }
+        .promo-modal {
+            position: relative;
+            background: var(--white);
+            border-radius: 8px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: promoIn 0.35s ease;
+        }
+        @keyframes promoIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .promo-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: none;
+            font-size: 1.2rem;
+            line-height: 1;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: background 0.2s;
+        }
+        .promo-close:hover { background: var(--orange); }
+        .promo-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 320px;
+        }
+        .promo-content {
+            padding: 2.75rem 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-y: auto;
+        }
+        .promo-icon-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+            width: 100%;
+        }
+        .promo-icon-row .pl { flex: 1; max-width: 80px; height: 2px; background: var(--orange); display: block; }
+        .promo-icon-row svg { width: 38px; height: 38px; flex-shrink: 0; }
+        .promo-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 0.25rem;
+        }
+        .promo-script {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            font-size: 2.6rem;
+            color: var(--orange);
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+        .promo-divider {
+            width: 100%;
+            border: none;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 1.25rem;
+        }
+        .promo-content p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 1.75rem;
+            max-width: 360px;
+        }
+        .promo-content .btn {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+            font-size: 1.05rem;
+            padding: 0.85rem 2rem;
+        }
+        .promo-footnote {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .promo-footnote svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+        @media (max-width: 760px) {
+            .promo-modal { grid-template-columns: 1fr; }
+            .promo-image { display: none; }
+            .promo-content { padding: 2.5rem 1.5rem; }
+            .promo-content h3 { font-size: 1.9rem; }
+            .promo-script { font-size: 2.1rem; }
+        }
     </style>
 </head>
 <body>
@@ -2504,6 +2633,36 @@
             handleUserMessage(value);
         });
     })();
+
+    // ── PROMO POPUP ──
+    (function() {
+        const overlay = document.getElementById('promoOverlay');
+        const closeBtn = document.getElementById('promoClose');
+        const cta = document.getElementById('promoCta');
+        if (!overlay) return;
+
+        const STORAGE_KEY = 'fremontPromoShown';
+
+        function openPromo() {
+            if (sessionStorage.getItem(STORAGE_KEY)) return;
+            overlay.classList.add('is-open');
+            sessionStorage.setItem(STORAGE_KEY, '1');
+        }
+        function closePromo() {
+            overlay.classList.remove('is-open');
+        }
+
+        const timer = setTimeout(openPromo, 20000);
+
+        closeBtn.addEventListener('click', closePromo);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closePromo();
+        });
+        cta.addEventListener('click', closePromo);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.classList.contains('is-open')) closePromo();
+        });
+    })();
 </script>
 
 <!-- ── CHAT WIDGET ── -->
@@ -2529,8 +2688,25 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
 </a>
 
-</body>
-</html>
+<!-- ── PROMO POPUP ── -->
+<div class="promo-overlay" id="promoOverlay" role="dialog" aria-modal="true" aria-labelledby="promoHeading">
+    <div class="promo-modal">
+        <button class="promo-close" id="promoClose" aria-label="Close popup">&times;</button>
+        <div class="promo-image" style="background-image: url('images/projects/marblehead-after.png');"></div>
+        <div class="promo-content">
+            <div class="promo-icon-row">
+                <span class="pl"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><rect x="7" y="14" width="2" height="2" fill="var(--orange)" stroke="none"></rect><rect x="11" y="14" width="2" height="2" fill="var(--orange)" stroke="none"></rect><rect x="15" y="14" width="2" height="2" fill="var(--orange)" stroke="none"></rect></svg>
+                <span class="pl"></span>
+            </div>
+            <h3 id="promoHeading">Summer Schedule</h3>
+            <p class="promo-script">Filling Fast!</p>
+            <hr class="promo-divider">
+            <p>Reserve your project now to secure a spot on our upcoming schedule.</p>
+            <a href="#contact" class="btn btn-orange" id="promoCta">Request Estimate &rarr;</a>
+            <div class="promo-footnote">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>No obligation. Free estimates.</span>
 
 
 
