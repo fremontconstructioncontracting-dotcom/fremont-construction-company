@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1130,6 +1130,31 @@
         .form-group textarea:focus { border-color: var(--orange); }
         .form-group textarea { min-height: 115px; resize: vertical; }
 
+        .form-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .form-consent input[type="checkbox"] {
+            width: auto;
+            margin: 0.2rem 0 0;
+            flex-shrink: 0;
+            accent-color: var(--orange);
+            cursor: pointer;
+        }
+        .form-consent label {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #666;
+            text-transform: none;
+            letter-spacing: normal;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .form-consent a { color: var(--navy); text-decoration: underline; }
+        .form-consent a:hover { color: var(--orange); }
+
         .form-submit {
             width: 100%;
             background: var(--orange);
@@ -2207,6 +2232,10 @@
                         <label>Project Details</label>
                         <textarea name="message" placeholder="Tell us about your project — location, size, timeline, etc."></textarea>
                     </div>
+                    <div class="form-group form-consent">
+                        <input type="checkbox" id="consentCheckbox" name="consent" required>
+                        <label for="consentCheckbox">I agree to Terms &amp; Conditions provided by the company. By providing my phone number, I agree to receive text messages from the business.</label>
+                    </div>
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6LfIWRotAAAAAMEQObLHx_m_SzEl_tf257X0Cz4X"></div>
                     </div>
@@ -2707,6 +2736,14 @@
             <div class="promo-footnote">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                 <span>No obligation. Free estimates.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
 
 
 
