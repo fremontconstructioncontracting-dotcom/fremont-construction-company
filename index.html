@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1136,8 +1136,19 @@
             gap: 0.6rem;
         }
         .form-consent input[type="checkbox"] {
-            width: auto;
-            margin: 0.2rem 0 0;
+            appearance: auto;
+            -webkit-appearance: checkbox;
+            box-sizing: border-box;
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            min-height: 14px;
+            max-width: 14px;
+            max-height: 14px;
+            aspect-ratio: 1 / 1;
+            padding: 0;
+            border: none;
+            margin: 0.25rem 0 0;
             flex-shrink: 0;
             accent-color: var(--orange);
             cursor: pointer;
