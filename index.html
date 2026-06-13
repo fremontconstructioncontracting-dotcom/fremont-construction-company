@@ -2474,7 +2474,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Fremont Construction &amp; Contracting Co., LLC. All rights reserved.</p>
-            <p>Fremont, Ohio &nbsp;|&nbsp; <a href="#contact">Licensed &amp; Insured</a></p>
+            <p>Fremont, Ohio &nbsp;|&nbsp; <a href="#contact">Licensed &amp; Insured</a> &nbsp;|&nbsp; <a href="client-intake.html">Client Intake Form</a></p>
         </div>
     </div>
 </footer>
@@ -2538,6 +2538,7 @@
         const formSuccess = estimateForm.parentElement.querySelector('.form-success');
         const formError = estimateForm.parentElement.querySelector('.form-error');
         const submitBtn = estimateForm.querySelector('.form-submit');
+        const submitBtnText = submitBtn ? submitBtn.textContent : '';
 
         estimateForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -2581,7 +2582,7 @@
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Submit Request';
+                    submitBtn.textContent = submitBtnText;
                 }
             }
         });
