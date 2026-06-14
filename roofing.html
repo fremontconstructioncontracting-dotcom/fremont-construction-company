@@ -145,16 +145,11 @@
             overflow: hidden;
             background: var(--navy);
         }
-        .carousel-track {
-            display: flex;
-            height: 100%;
-            transition: transform 1s ease-in-out;
-        }
         .carousel-track img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            flex-shrink: 0;
+            display: block;
         }
         .carousel-overlay {
             position: absolute;
@@ -470,9 +465,7 @@
 <div class="carousel-wrap">
     <div class="carousel">
         <div class="carousel-track" id="carouselTrack">
-            <img src="images/new-home-construction.png" alt="New construction project">
-            <img src="images/new-construction-2.jpg" alt="New construction project">
-            <img src="images/new-construction-3.jpg" alt="New construction project">
+            <img src="images/shingle-roof.png" alt="Shingle roof installation">
         </div>
         <div class="carousel-overlay"></div>
     </div>
@@ -485,7 +478,7 @@
 <main>
     <div class="nc-intro">
         <div class="nc-intro-heading">
-            <h1 id="ncHeadline" aria-label="Building Your Dreams"><span class="typewriter-line" data-text="Building Your"></span><br><em class="typewriter-line" data-text="Dreams"></em><span class="typewriter-cursor">|</span></h1>
+            <h1 id="ncHeadline" aria-label="Strength Up Above. Security and Peace of Mind Below."><span class="typewriter-line" data-text="Strength Up Above."></span><br><em class="typewriter-line" data-text="Security and Peace of Mind Below."></em><span class="typewriter-cursor">|</span></h1>
             <p class="nc-subheading">Uncompromising in quality and value, raising the standards for construction.</p>
             <div class="nc-services-lists">
                 <ul>
@@ -563,16 +556,6 @@
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-    const carouselTrack = document.getElementById('carouselTrack');
-    if (carouselTrack) {
-        const slides = carouselTrack.children.length;
-        let current = 0;
-        setInterval(() => {
-            current = (current + 1) % slides;
-            carouselTrack.style.transform = `translateX(-${current * 100}%)`;
-        }, 5000);
-    }
 
     /* ── TYPEWRITER ── */
     (function () {
