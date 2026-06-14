@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Home Construction | Fremont Construction &amp; Contracting Co.</title>
+    <link rel="icon" type="image/png" href="images/fremont-logo.png">
+    <link rel="apple-touch-icon" href="images/fremont-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --orange: #F47920;
+            --orange-dark: #d4670f;
+            --navy: #1B2A4A;
+            --navy-dark: #0f1c30;
+            --charcoal: #3D3D3D;
+            --light-gray: #F4F4F4;
+            --white: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--navy);
+            padding: 0 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .nav-logo-text .brand-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .nav-logo-text .brand-sub {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            font-size: 0.58rem;
+            color: var(--orange);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+
+        .nav-cta {
+            background: var(--white) !important;
+            color: var(--navy) !important;
+            padding: 0.55rem 1.4rem !important;
+            border-radius: 3px;
+        }
+        .nav-cta:hover { background: var(--light-gray) !important; }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+        }
+
+        /* ── CAROUSEL ── */
+        .carousel-wrap {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+            background: var(--navy);
+        }
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .carousel-track img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%);
+            pointer-events: none;
+        }
+        .carousel-label {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, 50%);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.75rem, 6vw, 3rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--orange);
+            z-index: 10;
+        }
+
+        /* ── MAIN ── */
+        main {
+            min-height: 60vh;
+        }
+
+        .nc-intro {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2.5rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .nc-intro-content {
+            grid-column: 2;
+        }
+        .nc-intro-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+        .nc-intro-content .btn {
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .nc-intro {
+                grid-template-columns: 1fr;
+            }
+            .nc-intro-content {
+                grid-column: 1;
+            }
+        }
+
+        /* ── BUTTONS ── */
+        .btn {
+            font-family: Arial, sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.6rem 2rem;
+            border-radius: 3px;
+            display: inline-block;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .btn-orange { background: var(--orange); color: var(--white); border-color: var(--orange); }
+        .btn-orange:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--navy);
+            padding: 2.5rem 2.5rem 1.25rem;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 0.85fr;
+            gap: 2rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .fb-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--white);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: block;
+        }
+        .footer-brand .fb-sub {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--orange);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+        .footer-brand p { font-size: 0.8rem; color: var(--white); line-height: 1.5; }
+
+        .footer-tagline {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.7rem;
+        }
+        .footer-tagline .ftl { width: 18px; height: 2px; background: var(--orange); display: block; }
+        .footer-tagline p {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            font-style: italic;
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--orange);
+            display: inline-block;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.35rem; }
+        .footer-col ul li a {
+            color: var(--white);
+            text-decoration: underline;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: var(--orange); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 1rem;
+        }
+        .footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.38); }
+        .footer-bottom a { color: rgba(255,255,255,0.38); text-decoration: none; }
+        .footer-intake-link {
+            display: inline-block;
+            margin-top: 0.85rem;
+            color: var(--white);
+            text-decoration: underline;
+            font-size: 0.8rem;
+        }
+        .footer-intake-link:hover { color: var(--orange); }
+        .footer-bottom a:hover { color: var(--orange); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 860px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .navbar { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 74px;
+                left: 0;
+                right: 0;
+                background: var(--navy-dark);
+                padding: 1.5rem;
+                gap: 1.25rem;
+            }
+            .nav-toggle { display: flex; }
+            .nav-links.open .nav-cta { display: inline-block; white-space: nowrap; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar" id="navbar">
+    <a href="/" class="nav-logo">
+        <div class="nav-logo-text">
+            <span class="brand-name">Fremont</span>
+            <span class="brand-sub">Construction &amp; Contracting</span>
+        </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#why-us">Why Us</a></li>
+        <li><a href="tel:+14193707774">📞 (419) 370-7774</a></li>
+        <li><a href="/#contact" class="nav-cta">Free Estimate</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- ── CAROUSEL ── -->
+<div class="carousel-wrap">
+    <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <img src="images/new-construction-1.jpg" alt="New construction project">
+            <img src="images/new-construction-2.jpg" alt="New construction project">
+            <img src="images/new-construction-3.jpg" alt="New construction project">
+        </div>
+        <div class="carousel-overlay"></div>
+    </div>
+    <h2 class="carousel-label">New Construction</h2>
+</div>
+
+<!-- ── MAIN ── -->
+<main>
+    <div class="nc-intro">
+        <div class="nc-intro-content">
+            <p>Building a new home, garage, pole barn, or commercial structure is one of the biggest investments you'll make. At Fremont Construction &amp; Contracting, we provide dependable new construction services from the ground up, helping bring your vision to life with quality craftsmanship, clear communication, and attention to detail at every stage of the project.</p>
+            <p>Whether you're planning a custom garage, workshop, agricultural building, home addition, or complete new build, our team works closely with you to ensure the finished product meets your needs, budget, and timeline. From site preparation and framing to exterior finishes and final details, we are committed to delivering durable, high-quality construction built to stand the test of time.</p>
+            <p>Ready to get started? Contact us today for a free consultation and estimate on your new construction project.</p>
+            <a href="/#contact" class="btn btn-orange">Get Quote</a>
+        </div>
+    </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="fb-name">Fremont</span>
+                <span class="fb-sub">Construction &amp; Contracting Co., LLC</span>
+                <p style="max-width: 280px;">Ohio-based, family-owned construction and contracting company delivering quality craftsmanship to homes and businesses across Ohio. Proven. Reliable. Built to Last.</p>
+                <div class="footer-tagline">
+                    <span class="ftl"></span>
+                    <p>Trusted. Reliable. Built to Last.</p>
+                    <span class="ftl"></span>
+                </div>
+                <a href="/client-intake" class="footer-intake-link">Client Intake Form</a>
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/#services">New Home Construction</a></li>
+                        <li><a href="/#services">General Contracting</a></li>
+                        <li><a href="/#services">Remodeling &amp; Renovation</a></li>
+                        <li><a href="/#services">Commercial Construction</a></li>
+                        <li><a href="/#services">Roofing</a></li>
+                        <li><a href="/#services">Concrete &amp; Site Work</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/#about">About Us</a></li>
+                        <li><a href="/#why-us">Why Choose Us</a></li>
+                        <li><a href="/#contact">Contact Us</a></li>
+                        <li><a href="/#contact">Free Estimate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; justify-content: flex-end;">
+                <img src="images/fremont-construction-logo.png" alt="Fremont Construction & Contracting Co." style="max-width: 180px; width: 100%; height: auto;">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fremont Construction &amp; Contracting Co., LLC. All rights reserved.</p>
+            <p>Fremont, Ohio &nbsp;|&nbsp; <a href="/#contact">Licensed &amp; Insured</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    const carouselTrack = document.getElementById('carouselTrack');
+    if (carouselTrack) {
+        const slides = carouselTrack.children.length;
+        let current = 0;
+        setInterval(() => {
+            current = (current + 1) % slides;
+            carouselTrack.style.transform = `translateX(-${current * 100}%)`;
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>
