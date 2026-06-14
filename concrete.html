@@ -145,16 +145,14 @@
             overflow: hidden;
             background: var(--navy);
         }
-        .carousel-track {
-            display: flex;
-            height: 100%;
-            transition: transform 1s ease-in-out;
-        }
         .carousel-track img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-            flex-shrink: 0;
+            object-position: center bottom;
+            display: block;
+            transform: scale(1.15);
+            transform-origin: center bottom;
         }
         .carousel-overlay {
             position: absolute;
@@ -465,9 +463,7 @@
 <div class="carousel-wrap">
     <div class="carousel">
         <div class="carousel-track" id="carouselTrack">
-            <img src="images/new-home-construction.png" alt="New construction project">
-            <img src="images/new-construction-2.jpg" alt="New construction project">
-            <img src="images/new-construction-3.jpg" alt="New construction project">
+            <img src="images/concrete-pour.png" alt="Concrete pour project">
         </div>
         <div class="carousel-overlay"></div>
     </div>
@@ -562,15 +558,6 @@
     toggle.addEventListener('click', () => links.classList.toggle('open'));
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-    const carouselTrack = document.getElementById('carouselTrack');
-    if (carouselTrack) {
-        const slides = carouselTrack.children.length;
-        let current = 0;
-        setInterval(() => {
-            current = (current + 1) % slides;
-            carouselTrack.style.transform = `translateX(-${current * 100}%)`;
-        }, 5000);
-    }
 
     /* ── TYPEWRITER ── */
     (function () {
